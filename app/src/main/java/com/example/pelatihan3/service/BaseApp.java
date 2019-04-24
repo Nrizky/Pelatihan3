@@ -1,14 +1,17 @@
 package com.example.pelatihan3.service;
 
+import android.app.Application;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class BeritaService {
+public class BaseApp extends Application {
+
 
     private Retrofit retrofit = null;
 
     public BeritaAPI getAPI() {
-        String BASE_URL = "http://newsapi.org/";
+        String BASE_URL = "https://newsapi.org/";
 
         if (retrofit == null) {
             retrofit = new Retrofit

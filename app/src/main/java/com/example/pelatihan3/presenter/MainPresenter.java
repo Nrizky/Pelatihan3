@@ -1,10 +1,8 @@
 package com.example.pelatihan3.presenter;
 
-import android.util.Log;
-
 import com.example.pelatihan3.model.ArticlesItem;
 import com.example.pelatihan3.model.Berita;
-import com.example.pelatihan3.service.BeritaService;
+import com.example.pelatihan3.service.BaseApp;
 import com.example.pelatihan3.view.MainInterface;
 
 import java.util.List;
@@ -14,17 +12,17 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainPresenter {
-    private BeritaService beritaService;
+    private BaseApp baseApp;
     private MainInterface mainInterface;
 
     public MainPresenter(MainInterface mainInterface) {
         this.mainInterface = mainInterface;
-        if (this.beritaService == null)
-            beritaService = new BeritaService();
+        if (this.baseApp == null)
+            baseApp = new BaseApp();
     }
 
     public void getArticlesItem() {
-        beritaService.getAPI().getResult().enqueue(new Callback<Berita>() {
+        baseApp.getAPI().getResult().enqueue(new Callback<Berita>() {
 
 
             @Override
